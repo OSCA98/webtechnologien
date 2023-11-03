@@ -4,7 +4,7 @@
 }
 body {
   position:absolute;
-  background-image: url('sky.avif');
+  background-image: url('../images/sky.avif');
   background-repeat: repeat;
   top:0;
   left:0;

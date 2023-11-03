@@ -1,7 +1,7 @@
 const button = document.getElementById('jsTestElement');
 const counter = document.getElementById('jsCounter');
 
-document.addEventListener('click', () => {
+button.addEventListener('click', () => {
   increase();
 })
 

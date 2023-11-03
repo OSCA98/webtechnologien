@@ -1,0 +1,18 @@
+* {
+  color: white;
+  font-weight: 700;
+}
+body {
+  position:absolute;
+  background-image: url('sky.avif');
+  background-repeat: repeat;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  margin: 0;
+}
+
+#backLink {
+  position: sticky
+}

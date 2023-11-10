@@ -1,11 +1,24 @@
-.testClass {
-  color:blue;
+.header {
+  width:100%;
+  background-color:#ddd;
   border: 1px solid black;
   margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-#jsTestElement:hover {
-  color:white;
-  background-color: black;
-  cursor: pointer;
+.outerBody {
+  
+  background-image: url('../images/sky.avif');
+  height:50rem;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.innerBody {
+  width:90%;
+  height:90%;
+  background-image: linear-gradient(to top, rgba(255,255,255,0.1), rgba(255,255,255,1));
 }

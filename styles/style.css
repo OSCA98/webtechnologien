@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-image: url('../images/sky.avif');
 }
 
 .header {
@@ -11,20 +12,14 @@ body {
   border: .5rem solid black;
   display: flex;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
 }
 
-.outerBody {
-  
-  background-image: url('../images/sky.avif');
-  height:50rem;
-  width:100%;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.innerBody {
+.content {
+  margin-left:5%;
   width:90%;
-  height:90%;
-  background-image: linear-gradient(to top, rgba(255,255,255,0.1), rgba(255,255,255,1));
+  height:fit-content;
+  min-height: 90vh;
+  background-image: linear-gradient(to top, rgba(255,255,255,0.5), rgba(255,255,255,1));
 }

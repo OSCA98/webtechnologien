@@ -2,7 +2,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background: url('../images/SA.png') left no-repeat, url('../images/sky.avif') right top repeat;
+  background: url('../images/Sonnenabschnitt.png') left no-repeat, url('../images/sky.avif') right top repeat;
 }
 .header {
   width:100%;

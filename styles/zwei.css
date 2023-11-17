@@ -30,17 +30,17 @@ body {
 .planet {
   height:75px;
   width:75px;
+  transition: transform 0.05s ease;
 }
 .planet:hover {
-  height: 80px;
-  width: 80px;
+  transform: scale(1.25);
 }
 
 .planeten {
   position:absolute;
   top:50vh;
   margin-left: 10rem;
-  width:100%;
+  width:calc(100vw - 10rem);
   height:fit-content;
   justify-content: space-between;
   align-items: center;

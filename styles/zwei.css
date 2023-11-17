@@ -1,18 +1,49 @@
-* {
-  color: white;
-  font-weight: 700;
-}
+
 body {
-  position:absolute;
-  background-image: url('../images/sky.avif');
-  background-repeat: repeat;
-  top:0;
-  left:0;
-  width:100vw;
-  height:100vh;
   margin: 0;
+  height: 100vh;
+  background: url('../images/SA.png') left no-repeat, url('../images/sky.avif') right top repeat;
+}
+.header {
+  width:100%;
+  height: 4rem;
+  background-color:#ddd;
+  color:black;
+  box-sizing: border-box;
+  border: .5rem solid black;
+  display: flex;
+  position: sticky;
+  top: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.header > * {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-#backLink {
-  position: sticky
+.menu {
+  width: 100%;
+}
+
+.planet {
+  height:75px;
+  width:75px;
+}
+.planet:hover {
+  height: 80px;
+  width: 80px;
+}
+
+.planeten {
+  position:absolute;
+  top:50vh;
+  margin-left: 10rem;
+  width:100%;
+  height:fit-content;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }

@@ -23,6 +23,15 @@ body {
   align-items: center;
 }
 
+.header a {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.05s ease;
+}
+.header a:hover {
+  transform: scale(1.1);
+}
+
 .menu {
   width: 100%;
 }

@@ -22,10 +22,23 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+.header a {
+  text-decoration: none;
+  color: black;
+  transition: transform 0.05s ease;
+}
+.header a:hover {
+  transform: scale(1.1);
+}
+.backNavigation {
+  width: 47px;
+}
+
 
 .menu {
   width: 100%;
 }
+
 
 .content {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);

@@ -66,7 +66,7 @@ body {
 
 .planetenBox {
   position:absolute;
-  top:50vh;
+  top: calc(50vh - 37px);
   margin-left: 10rem;
   width:calc(100vw - 10rem);
   height:fit-content;

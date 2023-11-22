@@ -33,13 +33,9 @@ body {
 .backNavigation {
   width: 47px;
 }
-
-
 .menu {
   width: 100%;
 }
-
-
 .content {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   margin-left: 5%;

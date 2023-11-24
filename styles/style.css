@@ -30,9 +30,6 @@ body {
 .header a:hover {
   transform: scale(1.1);
 }
-.backNavigation {
-  width: 47px;
-}
 .menu {
   width: 100%;
 }

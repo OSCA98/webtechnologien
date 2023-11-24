@@ -19,7 +19,7 @@ a {
   position: sticky;
   top: 0;
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 0.5rem;
 }
 .header > * {
   display: flex;
@@ -37,6 +37,11 @@ a {
 
 .menu {
   width: 100%;
+}
+
+.logo {
+  width: 30px;
+  height:30px;
 }
 
 .planetenBox figure {

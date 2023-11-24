@@ -1,5 +1,7 @@
-body {
-  margin: 0;
-  height: 100vh;
-  background-image: url('../images/sky.avif');
+body{
+  background-color: #000000;
+  color: #ffffff;
 }
+h1,h2{
+  text-align:center;
+  }

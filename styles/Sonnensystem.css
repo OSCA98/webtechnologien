@@ -68,7 +68,8 @@ body {
   position:absolute;
   top: calc(50vh - 37px);
   margin-left: 10rem;
-  width:calc(100vw - 10rem);
+  margin-right: 3rem;
+  width:calc(100vw - 13rem);
   height:fit-content;
   justify-content: space-between;
   align-items: center;

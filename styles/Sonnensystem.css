@@ -44,6 +44,20 @@ a {
   height:30px;
 }
 
+
+.planetenBox {
+  position:absolute;
+  top: calc(50vh - 37px);
+  margin-left: 10rem;
+  margin-right: 3rem;
+  width:calc(100vw - 13rem);
+  height:fit-content;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
 .planetenBox figure {
   margin: 0;
 }
@@ -69,18 +83,4 @@ a {
 
 .planetenBox figure:hover figcaption{
   opacity: 1;
-}
-
-
-.planetenBox {
-  position:absolute;
-  top: calc(50vh - 37px);
-  margin-left: 10rem;
-  margin-right: 3rem;
-  width:calc(100vw - 13rem);
-  height:fit-content;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
 }

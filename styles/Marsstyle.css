@@ -1,24 +1,7 @@
 body {
-  margin: 0;
-  height: 100vh;
-  background-image: url('../images/sky.avif');
-
   background-color: #000000;
   color: #ffffff;
   }
   h1,h2,h3,h4,h5{
   text-align:center;
-  }
-  .header > * {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .header a {
-    color: black;
-    transition: transform 0.05s ease;
-  }
-  .header a:hover {
-    transform: scale(1.1);
   }

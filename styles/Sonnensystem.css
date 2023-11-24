@@ -63,8 +63,8 @@ a {
 }
 
 .planetenBox figure img {
-  height:75px;
-  width:75px;
+  height:150px;
+  width:150px;
   transition: transform 0.05s;
 }
 
@@ -83,4 +83,52 @@ a {
 
 .planetenBox figure:hover figcaption{
   opacity: 1;
+}
+
+/*
+---Planetengrößen---
+Ursprünglich  75px
+Minimal       50px
+Maximal       150px
+
+Merkur  4879km    ->50px
+Venus   12104km   ->55px
+Erde    12742km   ->56px
+Mars    6779km    ->51px
+Jupiter 139820km  ->150px
+Saturn  116460km  ->133px
+Uranus  50724km   ->84px
+Neptun  49244km   ->83px
+*/
+#merkur {
+  width:50px;
+  height:50px;
+}
+#venus {
+  width:55px;
+  height:55px;
+}
+#erde {
+  width:56px;
+  height:56px;
+}
+#mars {
+  width:51px;
+  height:51px;
+}
+#jupiter {
+  width: 150px;
+  height: 150px;
+}
+#saturn {
+  width: 133px;
+  height: 133px;
+}
+#uranus {
+  width: 84px;
+  height: 84px;
+}
+#neptun {
+  width: 83px;
+  height: 83px;
 }

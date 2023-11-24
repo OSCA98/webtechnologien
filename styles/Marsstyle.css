@@ -2,4 +2,10 @@ body {
   margin: 0;
   height: 100vh;
   background-image: url('../images/sky.avif');
-}
+
+  background-color: #000000;
+  color: #ffffff;
+  }
+  h1,h2,h3,h4,h5{
+  text-align:center;
+  }

@@ -9,3 +9,16 @@ body {
   h1,h2,h3,h4,h5{
   text-align:center;
   }
+  .header > * {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .header a {
+    color: black;
+    transition: transform 0.05s ease;
+  }
+  .header a:hover {
+    transform: scale(1.1);
+  }

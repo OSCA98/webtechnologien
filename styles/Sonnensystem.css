@@ -99,7 +99,7 @@ Venus   12104km   ->55px
 Erde    12742km   ->56px
 Mars    6779km    ->51px
 Jupiter 139820km  ->150px
-Saturn  116460km  ->133px
+Saturn  116460km  ->133px (+10px)
 Uranus  50724km   ->84px
 Neptun  49244km   ->83px
 */
@@ -124,8 +124,8 @@ Neptun  49244km   ->83px
   height: 150px;
 }
 #saturn {
-  width: 133px;
-  height: 133px;
+  width: 143px;
+  height: 143px;
 }
 #uranus {
   width: 84px;

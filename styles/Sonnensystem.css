@@ -4,7 +4,6 @@ body {
   height: 100vh;
   background: url('../images/Sonnenabschnitt.png') left no-repeat, url('../images/sky.jpg') right top repeat;
 }
-
 a {
   text-decoration: none;
 }
@@ -18,7 +17,7 @@ a {
   display: flex;
   position: sticky;
   top: 0;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 .header > * {
@@ -38,12 +37,10 @@ a {
 .menu {
   width: 100%;
 }
-
 .logo {
   width: 30px;
   height:30px;
 }
-
 
 .planetenBox {
   position:absolute;
@@ -87,48 +84,44 @@ a {
 
 /*
 ---Planetengrößen---
-Ursprünglich  75px
-Minimal       50px
-Maximal       150px
-
-Merkur  4879km    ->50px
+Merkur  4879km    ->45px
 Venus   12104km   ->55px
-Erde    12742km   ->56px
-Mars    6779km    ->51px
-Jupiter 139820km  ->150px
-Saturn  116460km  ->133px
-Uranus  50724km   ->84px
-Neptun  49244km   ->83px
+Erde    12742km   ->60px
+Mars    6779km    ->48px
+Jupiter 139820km  ->160px
+Saturn  116460km  ->168px
+Uranus  50724km   ->100px
+Neptun  49244km   ->85px
 */
 #merkur {
-  width:50px;
-  height:50px;
+  width:45px;
+  height:45px;
 }
 #venus {
   width:55px;
   height:55px;
 }
 #erde {
-  width:56px;
-  height:56px;
+  width:60px;
+  height:60px;
 }
 #mars {
-  width:51px;
-  height:51px;
+  width:48px;
+  height:48px;
 }
 #jupiter {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
 }
 #saturn {
-  width: 133px;
-  height: 133px;
+  width: 168px;
+  height: 168px;
 }
 #uranus {
-  width: 84px;
-  height: 84px;
+  width: 100px;
+  height: 100px;
 }
 #neptun {
-  width: 83px;
-  height: 83px;
+  width: 85px;
+  height: 85px;
 }

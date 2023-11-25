@@ -57,6 +57,9 @@ a {
 
 .planetenBox figure {
   margin: 0;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .planetenBox figure img {
@@ -114,8 +117,8 @@ Neptun  49244km   ->85px
   height: 160px;
 }
 #saturn {
-  width: 168px;
-  height: 168px;
+  width: 133px;
+  height: 133px;
 }
 #uranus {
   width: 100px;

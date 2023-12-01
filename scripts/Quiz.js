@@ -22,7 +22,7 @@ function handleButtonClick (event) {
   loadNewQuestion()
 }
 
-//Manage scoreincrease and progressbar
+//Manage progressbar
 function increaseScore () {
   //Increase score
   progressPercentage = progressPercentage + 10;

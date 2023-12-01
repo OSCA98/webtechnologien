@@ -21,17 +21,19 @@ body {
   min-height: 70vh;
 }
 
-#progressBar {
+#progressWrapper {
   height:30px;
   background-color: lightblue;
   width:95%;
   margin-left:2.5%;
   margin-top:10px;
 }
-#progress {
+#progressBar {
   height:100%;
-  width:66%;
+  width:0%;
   background-color: blue;
+  display: flex;
+  align-items: center;
 }
 #question {
   height:25px;

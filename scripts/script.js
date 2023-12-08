@@ -17,6 +17,8 @@ const slideData = [
 
 //Take track of current position in array
 let currentSlideIndex = 0;
+//Keeps track if banner is currently moving to prevent multiple btn-clicks
+let isProcessing = false;
 
 /**
  * Loads initial 3 slides:
@@ -34,24 +36,36 @@ function initSlideShow() {
  * Gets called when left button is clicked
  */
 async function handleLeftBtnClick() {
+  //If banner is currently moving --> ignore btn-click
+  if (isProcessing) {
+    return;
+  }
+  isProcessing = true;
   //Add slide on the outer left position (2 lengths left of current slide)
   addSlide(getSlideIndex(2),-2,'first')
   //Move whole banner to the right --> new current slide
   await move(1);
   //Remove rightest slide (which was (after moving) 2 lengths right of current slide)
   removeSlide('last');
+  isProcessing = false;
 }
 
 /**
  * Gets called when right button is clicked
  */
 async function handleRightBtnClick() {
+  //If banner is currently moving --> ignore btn-click
+  if (isProcessing) {
+    return;
+  }
+  isProcessing = true;
   //Add slide on the outer right position (2 lengths right of current slide)
   addSlide(getSlideIndex(-2),2,'last')
   //Move whole banner to the left --> new current slide
   await move(-1);
   //Remove leftest slide (which was (after moving) 2 lengths left of current slide)
   removeSlide('first');
+  isProcessing = false;
 }
 
 /**

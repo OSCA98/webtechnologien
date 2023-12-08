@@ -153,9 +153,9 @@ function modulo(baseNumber,divisor) {
  */
 async function move(direction) {
   //Specifies in how many steps the banners gets moves
-  const RESOLUTION = 10;
+  const RESOLUTION = 50;
   //Specifies the complete duration to perform all steps (in miliseconds)
-  const DURATION = 100; //ms
+  const DURATION = 500; //ms
 
   //Perform movement multiple times
   for (let i = 0 ; i < RESOLUTION ; i++) {

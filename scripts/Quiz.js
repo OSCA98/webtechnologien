@@ -24,9 +24,10 @@ function handleButtonClick (event) {
 
 //Manage progressbar
 function increaseScore () {
-  //Increase score
+  //Increase score while score <= 100%
   progressPercentage = progressPercentage + 10;
-
+  if (progressPercentage == 100)
+    break;
   //Set style and content of progressbar to current percantage ('40' + '%')
   progressElement.style.width = progressPercentage + "%";
   progressElement.innerHTML = progressPercentage + "%";

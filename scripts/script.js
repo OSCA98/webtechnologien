@@ -19,6 +19,7 @@ const slideData = [
 let currentSlideIndex = 0;
 //Keeps track if banner is currently moving to prevent multiple btn-clicks
 let isProcessing = false;
+//Timer to automaticly slide banner in ms
 let autoSlideTimer = 5000;
 
 /**
@@ -33,13 +34,19 @@ function initSlideShow() {
   addSlide(getSlideIndex(currentSlideIndex-1),1);
 }
 
+/**
+ * Manages to autoslide banner
+ */
 function autoSlideClock() {
+  //If remaining time is 0 --> slide right and reset timer
   if (autoSlideTimer <= 0) {
     handleRightBtnClick()
     autoSlideTimer = 5000;
   } else {
+    //Else, just reduce timer by 1second
     autoSlideTimer -= 1000;
   }
+  //Reinvoce timerfunction after 1 second
   setTimeout(autoSlideClock,1000);
 }
 

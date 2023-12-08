@@ -142,7 +142,8 @@ function sleep(delay) {
 
 /**
  * Performes modulooperation on two given numbers
- * Negative baseNumbers get handled like 
+ * Negative baseNumbers get handled like the 'analytical continuation of modulo in the set of natural number'
+ * For example: modulo(-3,5)==modulo(2,5)==2
  * @param {number} baseNumber 
  * @param {number} divisor 
  * @returns baseNumber mod divisor

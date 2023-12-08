@@ -19,6 +19,7 @@ const slideData = [
 let currentSlideIndex = 0;
 //Keeps track if banner is currently moving to prevent multiple btn-clicks
 let isProcessing = false;
+let autoSlideTimer = 5000;
 
 /**
  * Loads initial 3 slides:
@@ -32,6 +33,16 @@ function initSlideShow() {
   addSlide(getSlideIndex(currentSlideIndex-1),1);
 }
 
+function autoSlideClock() {
+  if (autoSlideTimer <= 0) {
+    handleRightBtnClick()
+    autoSlideTimer = 5000;
+  } else {
+    autoSlideTimer -= 1000;
+  }
+  setTimeout(autoSlideClock,1000);
+}
+
 /**
  * Gets called when left button is clicked
  */
@@ -41,6 +52,7 @@ async function handleLeftBtnClick() {
     return;
   }
   isProcessing = true;
+  autoSlideTimer = 5000;
   //Add slide on the outer left position (2 lengths left of current slide)
   addSlide(getSlideIndex(2),-2,'first')
   //Move whole banner to the right --> new current slide
@@ -59,6 +71,7 @@ async function handleRightBtnClick() {
     return;
   }
   isProcessing = true;
+  autoSlideTimer = 5000;
   //Add slide on the outer right position (2 lengths right of current slide)
   addSlide(getSlideIndex(-2),2,'last')
   //Move whole banner to the left --> new current slide
@@ -180,3 +193,5 @@ function moveAllSlides(movePercentage) {
 
 //Init first 3 Banners
 initSlideShow();
+
+autoSlideClock();

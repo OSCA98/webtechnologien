@@ -16,11 +16,17 @@ let progressPercentage = 0;
 let currentQuestion = null;
 
 //Gets called when click on btn
-function handleButtonClick (event) {
-  const buttonId =  event.target.id;
-  increaseScore();
-  loadNewQuestion()
+function handleButtonClick(event) {
+  const selectedAnswerId = event.target.id;
+  
+  // Check if the selected answer is correct
+  if (selectedAnswerId === currentQuestion.TrueAnswer) {
+    increaseScore();
+  }
+  
+  loadNewQuestion();
 }
+
 
 //Manage progressbar
 function increaseScore () {

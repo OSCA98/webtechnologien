@@ -1,8 +1,6 @@
 @import url("general.css");
 
 body {
-  margin: 0;
-  height: 100vh;
   background: url('../images/Sonnenabschnitt.png') left no-repeat, url('../images/sky.jpg') right top repeat;
 }
 a {

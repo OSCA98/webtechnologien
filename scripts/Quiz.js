@@ -73,8 +73,14 @@ function increaseProgressbar () {
 //Manages getting new random question and updating HTML
 function loadNewQuestion () {
   resetBtnColor();
-  const allQuestionsCount = questions.length;
-  const newQuestionIndex = Math.floor(Math.random() * allQuestionsCount);
+
+  //Count how many questions are still free
+  const freeQuestionCount = freeQuestionIds.length;
+  //Get random value
+  const arrayIndex = Math.floor(Math.random() * freeQuestionCount)
+  //Slice specific index out of the array
+  const newQuestionIndex = freeQuestionIds.splice(arrayIndex,1)[0];
+  //Set current question
   currentQuestion = questions[newQuestionIndex];
 
   questionElement.innerHTML = currentQuestion.question;
@@ -295,5 +301,7 @@ const questions = [
       "TrueAnswer": "answer3"
     }
   ];
+
+  let freeQuestionIds = questions.map((q,i)=>i);
 
 loadNewQuestion();

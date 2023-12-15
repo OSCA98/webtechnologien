@@ -22,8 +22,10 @@ function handleButtonClick(event) {
   const selectedAnswerId = event.target.id; 
   
   // Check if the selected answer is correct
-  if (selectedAnswerId === currentQuestion.TrueAnswer) {
+  if (electesdAnswerId === currentQuestion.TrueAnswer) {
     increaseScore();
+  }else{
+    alert("FALSCHE ANTWORT")
   }
   
   loadNewQuestion();
@@ -40,7 +42,8 @@ function handleButtonClick(event) {
 //Manage progressbar
   //increase the score when the answer is correct
   function increaseScore () {
-    correctAnswersCount++;
+    if(electesdAnswerId === currentQuestion.TrueAnswer)
+      {correctAnswersCount++;}
     increaseProgressbar();
   }
   //the progressbar progresses when an answer is given

@@ -10,9 +10,21 @@ forwardBtn.addEventListener('click',handleRightBtnClick);
 
 //Array of pictures
 const slideData = [
-  '../images/planeten/Erde.png',
-  '../images/planeten/Jupiter.png',
-  '../images/planeten/Mars.png'
+  {
+    header: 'Header 1',
+    imgPath: '../images/planeten/Erde.png',
+    text: 'Text 1'
+  },
+  {
+    header: 'Header 2',
+    imgPath: '../images/planeten/Jupiter.png',
+    text: 'Text 2'
+  },
+  {
+    header: 'Header 3',
+    imgPath: '../images/planeten/Mars.png',
+    text: 'Text 3'
+  }
 ]
 
 //Take track of current position in array
@@ -107,18 +119,30 @@ function getSlideIndex(relativePosition) {
 function addSlide(slideIndex,offset,addOrder = 'last') {
 
   //Create element and add CSS-properties
-  const newImg = document.createElement('img');
-  newImg.style.position = "absolute";
-  newImg.style.height = "100%";
-  newImg.style.width = "100%";
-  newImg.style.left = `${offset*100}%`;
-  newImg.src=slideData[slideIndex];
+
+  //Background div
+  const div = document.createElement('div');
+  div.style.position = "absolute";
+  div.style.height = "100%";
+  div.style.width = "100%";
+  div.style.left = `${offset*100}%`;
+  div.style.backgroundImage=`url(${slideData[slideIndex].imgPath})`;
+  div.style.backgroundSize='cover';
+
+  //Header
+  const h2 = document.createElement('h2');
+  h2.innerHTML = slideData[slideIndex].header;
+  //Text
+  const span = document.createElement('span');
+  span.innerHTML = slideData[slideIndex].text;
+  div.appendChild(h2);
+  div.appendChild(span);
 
   //Add to HTML-tree based on given add-order
   if (addOrder == 'first') {
-    slideshow.prepend(newImg)
+    slideshow.prepend(div)
   } else {
-    slideshow.append(newImg)
+    slideshow.append(div)
   }
 }
 

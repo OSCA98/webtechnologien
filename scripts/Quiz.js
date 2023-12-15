@@ -16,39 +16,63 @@ let progressPercentage = 0;
 let currentQuestion = null;
 const correctAnswersNeeded = 10;
 let correctAnswersCount = 0;
+let deactivateBtns = false;
 
 //Gets called when click on btn
-function handleButtonClick(event) {
+async function handleButtonClick(event) {
+  if (deactivateBtns) {
+    return;
+  }
+  deactivateBtns = true;
   const selectedAnswerId = event.target.id; 
   
   // Check if the selected answer is correct
-  if (selectedAnswerId === currentQuestion.TrueAnswer) {
+  const isCorrectAnswer = selectedAnswerId === currentQuestion.TrueAnswer
+  if (isCorrectAnswer) {
+    colorBtn(selectedAnswerId,'green')
     increaseScore();
+  } else {
+    colorBtn(selectedAnswerId,'red');
   }
+  await sleep(isCorrectAnswer ? 200 : 600);
+  resetBtnColor();
   increaseProgressbar();
   // Check if the player has completed the quiz
   if (progressPercentage === 100) {
-    alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " Punkte erreicht.");
+    await sleep(10);
+    alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " Punkte erreicht. \n Nochmal spielen?");
     // You may choose to reset the game or perform other actions here
+    resetQuiz();
   } else {
     loadNewQuestion();
   }
+  deactivateBtns = false;
+}
+
+/**
+ * Call asyncronly to wait given miliseconds 
+ * @param {number} delay delay in ms
+ * @returns {Promise}
+ */
+function sleep(delay) {
+  return new Promise((resolve) => setTimeout(resolve, delay))
 }
 
 //Manage progressbar
-  //increase the score when the answer is correct
-  function increaseScore () {
-    correctAnswersCount++;
-  }
-  //the progressbar progresses when an answer is given
-  function increaseProgressbar () {
-    progressPercentage = progressPercentage+10;
-    progressElement.style.width = progressPercentage + '%';
-    progressElement.innerHTML = progressPercentage + "%";
-  }
-  
+//increase the score when the answer is correct
+function increaseScore () {
+  correctAnswersCount++;
+}
+//the progressbar progresses when an answer is given
+function increaseProgressbar () {
+  progressPercentage = progressPercentage+10;
+  progressElement.style.width = progressPercentage + '%';
+  progressElement.innerHTML = progressPercentage + "%";
+}
+
 //Manages getting new random question and updating HTML
 function loadNewQuestion () {
+  resetBtnColor();
   const allQuestionsCount = questions.length;
   const newQuestionIndex = Math.floor(Math.random() * allQuestionsCount);
   currentQuestion = questions[newQuestionIndex];
@@ -63,9 +87,29 @@ function resetQuiz() {
   progressPercentage = 0;
   correctAnswersCount = 0;
   progressElement.style.width = '0%';
+  progressElement.innerHTML = '0%';
   loadNewQuestion();
 }
 
+function resetBtnColor() {
+  answer1Element.style.color = 'black';
+  answer2Element.style.color = 'black';
+  answer3Element.style.color = 'black';
+}
+
+function colorBtn(answer,color) {
+  switch (answer) {
+    case 'answer1':
+      answer1Element.style.color = color;
+      break;
+    case 'answer2':
+      answer2Element.style.color = color;
+      break;
+    case 'answer3':
+      answer3Element.style.color = color;
+      break;
+  }
+}
 //Array of questions
 const questions = [
     {

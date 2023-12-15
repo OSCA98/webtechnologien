@@ -60,6 +60,12 @@ function loadNewQuestion () {
   answer2Element.innerHTML = currentQuestion.answer2;
   answer3Element.innerHTML = currentQuestion.answer3;
 }
+
+function resetQuiz() {
+  progressPercentage = 0;
+  correctAnswersCount = 0;
+  progressElement.style.width = '0%';
+  loadNewQuestion();
 }
 
 //Array of questions

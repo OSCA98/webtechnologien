@@ -25,13 +25,15 @@ function handleButtonClick(event) {
   if (selectedAnswerId === currentQuestion.TrueAnswer) {
     increaseScore();
   }else{
-    alert("FALSCHE ANTWORT");
+    console.log(1);
+    //alert("FALSCHE ANTWORT");
+    console.log(2);
   }
   
 increaseProgressbar();
   // Check if the player has completed the quiz
-  if (correctAnswersCount === correctAnswersNeeded) {
-    alert("Congratulations! You've completed the quiz!");
+  if (progressPercentage === 100) {
+    alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " Punkte erreicht.");
     // You may choose to reset the game or perform other actions here
   } else {
     loadNewQuestion();
@@ -45,7 +47,7 @@ increaseProgressbar();
   }
   //the progressbar progresses when an answer is given
   function increaseProgressbar () {
-    progressPercentage = (correctAnswersCount / correctAnswersNeeded) * 100;
+    progressPercentage = progressPercentage+10;
     progressElement.style.width = progressPercentage + '%';
   }
   

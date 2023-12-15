@@ -29,18 +29,21 @@ function handleButtonClick(event) {
 
 
 //Manage progressbar
-function increaseScore () {
-  //Increase score while score <= 100%
-  if (progressPercentage < 100){
-  progressPercentage = progressPercentage + 10;
+  function increaseScore () {
+    //Increase score while score <= 100%
+    if (progressPercentage < 100){
+    progressPercentage = progressPercentage + 10;
+    }
+    else  {
+      progressPercentage = 100;
+    }  
+    //Set style and content of progressbar to current percantage ('40' + '%')
+    progressElement.style.width = progressPercentage + "%";
+    progressElement.innerHTML = progressPercentage + "%";
   }
-  else  {
-    progressPercentage = 100;
-  }  
-  //Set style and content of progressbar to current percantage ('40' + '%')
-  progressElement.style.width = progressPercentage + "%";
-  progressElement.innerHTML = progressPercentage + "%";
-}
+  function increaseProgress (){
+    
+  }
 
 //Manages getting new random question and updating HTML
 function loadNewQuestion () {

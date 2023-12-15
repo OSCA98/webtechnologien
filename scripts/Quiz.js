@@ -14,10 +14,12 @@ answer3Element.addEventListener('click',handleButtonClick)
 //Variables to store current informations
 let progressPercentage = 0;
 let currentQuestion = null;
+const correctAnswersNeeded = 10;
+let correctAnswersCount = 0;
 
 //Gets called when click on btn
 function handleButtonClick(event) {
-  const selectedAnswerId = event.target.id;
+  const selectedAnswerId = event.target.id; 
   
   // Check if the selected answer is correct
   if (selectedAnswerId === currentQuestion.TrueAnswer) {
@@ -25,26 +27,33 @@ function handleButtonClick(event) {
   }
   
   loadNewQuestion();
+
+  // Check if the player has completed the quiz
+  if (correctAnswersCount === correctAnswersNeeded) {
+    alert("Congratulations! You've completed the quiz!");
+    // You may choose to reset the game or perform other actions here
+  } else {
+    loadNewQuestion();
+  }
 }
 
 
 //Manage progressbar
   function increaseScore () {
+    correctAnswersCount++;
     //Increase score while score <= 100%
     if (progressPercentage < 100){
-    progressPercentage = progressPercentage + 10;
-    }
-    else  {
-      progressPercentage = 100;
-    }  
+      progressPercentage = progressPercentage + 10;
+      }
+      else  {
+        progressPercentage = 100;
+      }  
     //Set style and content of progressbar to current percantage ('40' + '%')
     progressElement.style.width = progressPercentage + "%";
     progressElement.innerHTML = progressPercentage + "%";
-  }
-  function increaseProgress (){
-    
-  }
-
+    }
+  //
+  
 //Manages getting new random question and updating HTML
 function loadNewQuestion () {
   //Lenght of questionarray (26)

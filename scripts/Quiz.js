@@ -245,3 +245,5 @@ const questions = [
       "TrueAnswer": "answer3"
     }
   ];
+
+loadNewQuestion();

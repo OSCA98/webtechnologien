@@ -11,10 +11,8 @@
   top: 0;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-}
-.header > * {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .header a {

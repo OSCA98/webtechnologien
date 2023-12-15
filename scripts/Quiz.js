@@ -38,29 +38,28 @@ function handleButtonClick(event) {
 }
 
 //Manage progressbar
+  //increase the score when the answer is correct
   function increaseScore () {
-  
+    correctAnswersCount++;
+    increaseProgressbar();
   }
+  //the progressbar progresses when an answer is given
   function increaseProgressbar () {
-
+    progressPercentage = (correctAnswersCount / correctAnswersNeeded) * 100;
+    progressElement.style.width = progressPercentage + '%';
   }
   
 //Manages getting new random question and updating HTML
 function loadNewQuestion () {
-  //Lenght of questionarray (26)
   const allQuestionsCount = questions.length;
-
-  //Gets random number between 0-25
-  const newQuestionIndex = Math.floor(Math.random()*allQuestionsCount)
-  
-  //Set currentquestion to question with this number
+  const newQuestionIndex = Math.floor(Math.random() * allQuestionsCount);
   currentQuestion = questions[newQuestionIndex];
 
-  //Set questionText and buttonText in HTML
   questionElement.innerHTML = currentQuestion.question;
   answer1Element.innerHTML = currentQuestion.answer1;
   answer2Element.innerHTML = currentQuestion.answer2;
   answer3Element.innerHTML = currentQuestion.answer3;
+}
 }
 
 //Array of questions

@@ -37,7 +37,6 @@ function handleButtonClick(event) {
   }
 }
 
-
 //Manage progressbar
   function increaseScore () {
     correctAnswersCount++;

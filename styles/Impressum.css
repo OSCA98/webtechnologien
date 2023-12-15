@@ -1,0 +1,13 @@
+@import url("general.css");
+
+body {
+    background-image:url('../images/sky.jpg');
+    color: #ffffff;
+    font-family: Calibri, Arial
+  }
+
+h1,h2,p{
+    text-align:center;
+    font-family:Arial;
+    font-size: 100%;
+    }  

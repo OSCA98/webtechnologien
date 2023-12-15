@@ -12,12 +12,13 @@ body {
   background-color:black;
   color:white;
   box-sizing: border-box;
-  border: .5rem solid black;
+  border-top: .5rem solid black;
+  border-bottom: .5rem solid black;
+  border-left: 1rem solid black;
+  border-right: 1rem solid black;
   display: flex;
   position: sticky;
   top: 0;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +37,28 @@ body {
 .logo {
   width: 30px;
   height: 30px;
+}
+
+
+.subHeader {
+  width:100%;
+  box-sizing: border-box;
+  border-left: 1rem solid black;
+  border-right: 1rem solid black;
+  height: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.subHeader a {
+  color: white;
+  text-decoration: none;
+  transition: transform 0.05s ease;
+}
+
+
+
+.subHeader a:hover {
+transform: scale(1.1);
 }
 
 .w-100 {

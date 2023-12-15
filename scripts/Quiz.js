@@ -22,14 +22,13 @@ function handleButtonClick(event) {
   const selectedAnswerId = event.target.id; 
   
   // Check if the selected answer is correct
-  if (electesdAnswerId === currentQuestion.TrueAnswer) {
+  if (selectedAnswerId === currentQuestion.TrueAnswer) {
     increaseScore();
   }else{
-    alert("FALSCHE ANTWORT")
+    alert("FALSCHE ANTWORT");
   }
   
-  loadNewQuestion();
-
+increaseProgressbar();
   // Check if the player has completed the quiz
   if (correctAnswersCount === correctAnswersNeeded) {
     alert("Congratulations! You've completed the quiz!");
@@ -42,9 +41,7 @@ function handleButtonClick(event) {
 //Manage progressbar
   //increase the score when the answer is correct
   function increaseScore () {
-    if(electesdAnswerId === currentQuestion.TrueAnswer)
-      {correctAnswersCount++;}
-    increaseProgressbar();
+    correctAnswersCount++;
   }
   //the progressbar progresses when an answer is given
   function increaseProgressbar () {

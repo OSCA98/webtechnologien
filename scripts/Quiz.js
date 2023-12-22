@@ -66,6 +66,15 @@ function increaseScore () {
 function increaseProgressbar () {
   progressPercentage = progressPercentage+10;
   progressElement.style.width = progressPercentage + '%';
+
+  //Orange = red + a bit green
+  //Decrease greenChannel down to zero to make pure red out of orange
+  const start = Number('0xa5'); //Initial greenvalue 165
+  const currentGreenValue = start*(1-(progressPercentage/100)); //Current value in decimal
+  const currentGreenValueHex = currentGreenValue.toString(16); //Current value in hex
+  const currentColor = '#ff' + currentGreenValueHex + '00'
+
+  progressElement.style.background = `linear-gradient(90deg,#ffa500,${currentColor})`
 }
 
 //Manages getting new random question and updating HTML

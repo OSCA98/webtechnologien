@@ -102,7 +102,6 @@ function resetQuiz() {
   progressPercentage = 0;
   correctAnswersCount = 0;
   progressElement.style.width = '0%';
-  progressElement.innerHTML = '0%';
   progressWrapperElement.style.borderColor = 'orange';
   loadNewQuestion();
 }

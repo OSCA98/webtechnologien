@@ -44,7 +44,7 @@
 
 }
 #answers {
-  height:50px;
+  height: fit-content;
   width: 95%;
   margin-left: 2.5%;
   margin-top:10px;
@@ -53,5 +53,23 @@
 }
 .answer {
 width:30%;
+min-height:75px;
 height:100%;
+font-size: 110%;
+}
+
+.answer:not(.wrongAnswer):hover .answer:not(.rightAnswer):hover {
+  background-color: lightgray;
+  border-color: lightgray;
+}
+
+.wrongAnswer {
+  background-color: red;
+  border-color: transparent;
+  border-radius: 0.25rem;
+}
+.rightAnswer {
+  background-color: green;
+  border-color: transparent;
+  border-radius: 0.25rem;
 }

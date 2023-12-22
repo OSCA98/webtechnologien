@@ -35,7 +35,6 @@ async function handleButtonClick(event) {
     colorBtn(selectedAnswerId,'red');
   }
   await sleep(isCorrectAnswer ? 200 : 600);
-  resetBtnColor();
   increaseProgressbar();
   // Check if the player has completed the quiz
   if (progressPercentage === 100) {
@@ -67,7 +66,6 @@ function increaseScore () {
 function increaseProgressbar () {
   progressPercentage = progressPercentage+10;
   progressElement.style.width = progressPercentage + '%';
-  progressElement.innerHTML = progressPercentage + "%";
 }
 
 //Manages getting new random question and updating HTML
@@ -98,21 +96,21 @@ function resetQuiz() {
 }
 
 function resetBtnColor() {
-  answer1Element.style.color = 'black';
-  answer2Element.style.color = 'black';
-  answer3Element.style.color = 'black';
+  answer1Element.classList.remove('wrongAnswer','rightAnswer');
+  answer2Element.classList.remove('wrongAnswer','rightAnswer');
+  answer3Element.classList.remove('wrongAnswer','rightAnswer');
 }
 
 function colorBtn(answer,color) {
   switch (answer) {
     case 'answer1':
-      answer1Element.style.color = color;
+      answer1Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
       break;
     case 'answer2':
-      answer2Element.style.color = color;
+      answer2Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
       break;
     case 'answer3':
-      answer3Element.style.color = color;
+      answer3Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
       break;
   }
 }

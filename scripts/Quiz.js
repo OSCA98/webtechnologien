@@ -76,6 +76,7 @@ function increaseProgressbar () {
   const currentColor = '#ff' + currentGreenValueHex + '00'
 
   progressElement.style.background = `linear-gradient(90deg,#ffa500,${currentColor})`
+  progressWrapperElement.style.borderColor = currentColor;
 }
 
 //Manages getting new random question and updating HTML
@@ -102,6 +103,7 @@ function resetQuiz() {
   correctAnswersCount = 0;
   progressElement.style.width = '0%';
   progressElement.innerHTML = '0%';
+  progressWrapperElement.style.borderColor = 'orange';
   loadNewQuestion();
 }
 

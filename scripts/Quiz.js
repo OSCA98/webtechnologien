@@ -2,6 +2,7 @@
 //Grab all important elements from 'HTML'
 const questionElement = document.getElementById("question");
 const progressElement = document.getElementById("progressBar");
+const progressWrapperElement = document.getElementById("progressWrapper");
 const answer1Element = document.getElementById("answer1");
 const answer2Element = document.getElementById("answer2");
 const answer3Element = document.getElementById("answer3");
@@ -70,11 +71,12 @@ function increaseProgressbar () {
   //Orange = red + a bit green
   //Decrease greenChannel down to zero to make pure red out of orange
   const start = Number('0xa5'); //Initial greenvalue 165
-  const currentGreenValue = start*(1-(progressPercentage/100)); //Current value in decimal
+  const currentGreenValue = Math.floor(start*(1-(progressPercentage/100))); //Current value in decimal
   const currentGreenValueHex = currentGreenValue.toString(16); //Current value in hex
   const currentColor = '#ff' + currentGreenValueHex + '00'
 
   progressElement.style.background = `linear-gradient(90deg,#ffa500,${currentColor})`
+  progressWrapperElement.style.borderColor = currentColor;
 }
 
 //Manages getting new random question and updating HTML
@@ -101,6 +103,7 @@ function resetQuiz() {
   correctAnswersCount = 0;
   progressElement.style.width = '0%';
   progressElement.innerHTML = '0%';
+  progressWrapperElement.style.borderColor = 'orange';
   loadNewQuestion();
 }
 

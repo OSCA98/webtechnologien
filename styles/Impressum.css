@@ -3,12 +3,46 @@
 body {
     background-image:url('../images/sky.jpg');
     color: #ffffff;
-    font-family: Calibri, Arial
+    font-family: Calibri, Arial;
+    text-align: center;
   }
 
-h1,h2,p{
+h1,h2,h3{
     text-align:center;
     font-family:Arial;
     font-size: 100%;
     color:white;
-    }  
+    }
+
+.fa {
+  padding: 20px;
+  margin: 5px;
+  width: 18px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  transform: scale(1.1);
+}
+
+.fa-facebook {
+  background: #2f4880;
+  color: white;
+}
+
+.fa-twitter {
+  background: #56aff3;
+  color: white;
+}
+
+.fa-youtube {
+  background: #c22626;
+  color: white;
+}
+
+.fa-instagram{
+  background: #f6ae32;
+  color: white;
+}

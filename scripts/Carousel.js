@@ -11,19 +11,19 @@ forwardBtn.addEventListener('click',handleRightBtnClick);
 //Array of pictures
 const slideData = [
   {
-    header: 'Header 1',
-    imgPath: '../images/planeten/Erde.png',
-    text: 'Text 1'
+    header: 'Wissenschaftlicher Mehrwert',
+    imgPath: '../images/Karusselbilder/p1.jpg',
+    text: 'Moderne Telekomunikation wäre ohne Raumfahrt unmöglich'
   },
   {
-    header: 'Header 2',
-    imgPath: '../images/planeten/Jupiter.png',
-    text: 'Text 2'
+    header: 'Technische Umsetzung',
+    imgPath: '../images/Karusselbilder/p2.jpg',
+    text: 'Durch KI-gestütze Entwicklung konnten weitere Verbesserungen in Aerodynamik, Treibstoffverbrauch und Baukosten erzielt werden'
   },
   {
-    header: 'Header 3',
-    imgPath: '../images/planeten/Mars.png',
-    text: 'Text 3'
+    header: 'Ausblick',
+    imgPath: '../images/Karusselbilder/p3.jpg',
+    text: 'Dem Kolonisieren fremder Welten stehen nur noch wenige technische Hürden im Weg'
   }
 ]
 
@@ -32,7 +32,7 @@ let currentSlideIndex = 0;
 //Keeps track if banner is currently moving to prevent multiple btn-clicks
 let isProcessing = false;
 //Timer to automaticly slide banner in ms
-let autoSlideTimer = 5000;
+let autoSlideTimer = 50000;
 
 /**
  * Loads initial 3 slides:
@@ -53,13 +53,13 @@ function autoSlideClock() {
   //If remaining time is 0 --> slide right and reset timer
   if (autoSlideTimer <= 0) {
     handleRightBtnClick()
-    autoSlideTimer = 5000;
+    autoSlideTimer = 50000;
   } else {
     //Else, just reduce timer by 1second
     autoSlideTimer -= 1000;
   }
   //Reinvoce timerfunction after 1 second
-  setTimeout(autoSlideClock,1000);
+  setTimeout(autoSlideClock,100000);
 }
 
 /**
@@ -122,21 +122,18 @@ function addSlide(slideIndex,offset,addOrder = 'last') {
 
   //Background div
   const div = document.createElement('div');
-  div.style.position = "absolute";
-  div.style.height = "100%";
-  div.style.width = "100%";
   div.style.left = `${offset*100}%`;
   div.style.backgroundImage=`url(${slideData[slideIndex].imgPath})`;
-  div.style.backgroundSize='cover';
+  
 
   //Header
   const h2 = document.createElement('h2');
   h2.innerHTML = slideData[slideIndex].header;
   //Text
-  const span = document.createElement('span');
-  span.innerHTML = slideData[slideIndex].text;
+  const p = document.createElement('p');
+  p.innerHTML = slideData[slideIndex].text;
   div.appendChild(h2);
-  div.appendChild(span);
+  div.appendChild(p);
 
   //Add to HTML-tree based on given add-order
   if (addOrder == 'first') {

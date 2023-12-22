@@ -58,10 +58,19 @@ body {
   position:absolute;
   height:100%;
   width: 100%;
-  object-fit: cover;
+  background-size: cover;
+  color: white;
+  padding:0.5rem;
 }
 
+#slideshow > div > h2 {
+ margin: 0;
+ width: fit-content;
+}
 
+#slideshow > div > p {
+  margin: 0;
+}
 #slideshowController {
   position:relative;
   top: -100%;

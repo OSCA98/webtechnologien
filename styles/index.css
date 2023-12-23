@@ -21,8 +21,8 @@ body {
 }
 
 #carousel {
-  height:250px;
-  width: 80%;
+  height:300px;
+  width: 100%;
   margin: auto;
   background-color: red;
   overflow: hidden;

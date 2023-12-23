@@ -26,14 +26,33 @@
       <a href="Neptun.html">Neptun</a>
     </div>
       <div class="content">
-        <video   class="w-100" autoplay loop muted >
-          <source src="../Videos/Sky.mp4" type="video/mp4">
-          </video>
           <p><h1><b>Willkommen bei Novus Space Exploration</b></h1>
 
           <h2>Entdecken Sie mit Novus Space Exploration die faszinierende Welt der Raumfahrt und Innovation. Als führendes deutsches 
           Raumfahrtunternehmen setzen wir uns leidenschaftlich dafür ein, die Grenzen der Weltraumforschung zu erweitern und wegweisende 
           Technologien zu entwickeln.</h2>
+
+          <div id="carousel">
+            <div id="slideshow">
+              <!--
+              Images get injected by JS
+              -->
+            </div>
+            <div id="slideshowController">
+              <button id="carouselBackBtn" class="carouselNavBtn ">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+              </button>
+              <button id="carouselForwardBtn" class="carouselNavBtn">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
 
           <p><b>Unsere Mission:</b></p>
 
@@ -67,31 +86,6 @@
 
           <h3><b>Treten Sie ein in die Welt von Novus Space Exploration und begleiten Sie uns auf unserer Reise zu den Sternen. Die Zukunft der Raumfahrt 
           beginnt hier.</b></h3>
-
-
-
-          <div id="carousel">
-            <div id="slideshow">
-              <!--
-              Images get injected by JS
-              -->
-            </div>
-            <div id="slideshowController">
-              <button id="carouselBackBtn" class="carouselNavBtn ">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
-                  <line x1="19" y1="12" x2="5" y2="12"></line>
-                  <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-              </button>
-              <button id="carouselForwardBtn" class="carouselNavBtn">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </button>
-            </div>
-          </div>
-
 
       </div>
     <script src="../scripts/script.js"></script>

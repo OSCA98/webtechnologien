@@ -18,6 +18,8 @@ let currentQuestion = null;
 const correctAnswersNeeded = 10;
 let correctAnswersCount = 0;
 let deactivateBtns = false;
+const startColorProgressbar = '#f9c61a';
+const endColorProgressbar = '#d75401'
 
 //Gets called when click on btn
 async function handleButtonClick(event) {
@@ -58,25 +60,62 @@ function sleep(delay) {
   return new Promise((resolve) => setTimeout(resolve, delay))
 }
 
-//Manage progressbar
-//increase the score when the answer is correct
+/**
+ * Manage progressbar
+ * increase the score when the answer is correct
+ */
 function increaseScore () {
   correctAnswersCount++;
 }
-//the progressbar progresses when an answer is given
+
+/**
+ * the progressbar progresses when an answer is given
+ */
 function increaseProgressbar () {
-  progressPercentage = progressPercentage+10;
+  //Increase processPercentage by 10
+  progressPercentage = progressPercentage + 10;
+
+  //Adjust width of the bar-element
   progressElement.style.width = progressPercentage + '%';
 
-  //Orange = red + a bit green
-  //Decrease greenChannel down to zero to make pure red out of orange
-  const start = Number('0xa5'); //Initial greenvalue 165
-  const currentGreenValue = Math.floor(start*(1-(progressPercentage/100))); //Current value in decimal
-  const currentGreenValueHex = currentGreenValue.toString(16); //Current value in hex
-  const currentColor = '#ff' + currentGreenValueHex + '00'
+  //Adjust colors for the gradient
 
-  progressElement.style.background = `linear-gradient(90deg,#ffa500,${currentColor})`
+  //We need to calculate the 'right mixture' of the colors for the current percentage (rightest end of the current bar)
+  const currentColor = interpolateRGB(startColorProgressbar,endColorProgressbar,progressPercentage);
+  //..and the set the background of the bar to a gradient 
+  //from 'startColorProgressbar' on the left end of the bar
+  //to 'currentColor' on the right end of the bar
+  progressElement.style.background = 'linear-gradient(90deg,' + startColorProgressbar + ',' + currentColor + ')';
+
+  //Set bordercolor to the current color
   progressWrapperElement.style.borderColor = currentColor;
+}
+/**
+ * Interpolates between 2 colors at a given point 
+ * @param {String} rgbString1 color1 as RGB HEX-string (e.g '#ff0000)
+ * @param {String} rgbString2 color2 as RGB HEX-string (e.g '#00ff00)
+ * @param {Number} percentage percentage to interpolate at (e.g 60 to slightly overweight color2)
+ * @returns {String} interpolated color as RGB HEX-string (e.g '#669900')
+ */
+function interpolateRGB(rgbString1, rgbString2, percentage) {
+  //Get numerig values for r,g and b for both given colors
+  const r1 = parseInt(rgbString1.substring(1,3),16);
+  const g1 = parseInt(rgbString1.substring(3,5),16);
+  const b1 = parseInt(rgbString1.substring(5,7),16);
+  const r2 = parseInt(rgbString2.substring(1,3),16);
+  const g2 = parseInt(rgbString2.substring(3,5),16);
+  const b2 = parseInt(rgbString2.substring(5,7),16);
+
+  //Get interpolated value for all 3 colorchannels each
+  const r = Math.floor(r1*(1-(percentage/100))+r2*(percentage/100));
+  const g = Math.floor(g1*(1-(percentage/100))+g2*(percentage/100));
+  const b = Math.floor(b1*(1-(percentage/100))+b2*(percentage/100));
+
+  //Convert them to hex (and append '0' if neccesary to make them 'two characters long')
+  const rHex = r.toString(16).length == 2 ? r.toString(16) : '0' + r.toString(16)
+  const gHex = g.toString(16).length == 2 ? g.toString(16) : '0' + g.toString(16)
+  const bHex = b.toString(16).length == 2 ? b.toString(16) : '0' + b.toString(16)
+  return '#'+ rHex + gHex + bHex;
 }
 
 //Manages getting new random question and updating HTML
@@ -102,7 +141,7 @@ function resetQuiz() {
   progressPercentage = 0;
   correctAnswersCount = 0;
   progressElement.style.width = '0%';
-  progressWrapperElement.style.borderColor = 'orange';
+  progressWrapperElement.style.borderColor = startColorProgressbar;
   loadNewQuestion();
 }
 
@@ -313,4 +352,4 @@ const questions = [
 
   let freeQuestionIds = questions.map((q,i)=>i);
 
-loadNewQuestion();
+resetQuiz();

@@ -29,7 +29,7 @@ a {
 .planetenBox figure img {
   height:150px;
   width:150px;
-  transition: transform 0.05s;
+  transition: transform 0.2s ease;
 }
 
 .planetenBox figure:hover img{
@@ -49,17 +49,6 @@ a {
   opacity: 1;
 }
 
-/*
----Planetengrößen---
-Merkur  4879km    ->45px
-Venus   12104km   ->55px
-Erde    12742km   ->60px
-Mars    6779km    ->48px
-Jupiter 139820km  ->160px
-Saturn  116460km  ->168px
-Uranus  50724km   ->100px
-Neptun  49244km   ->85px
-*/
 #merkur {
   width:45px;
   height:45px;

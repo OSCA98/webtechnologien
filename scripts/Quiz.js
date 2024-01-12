@@ -18,6 +18,7 @@ let currentQuestion = null;
 const correctAnswersNeeded = 10;
 let correctAnswersCount = 0;
 let deactivateBtns = false;
+let freeQuestionIds;
 const startColorProgressbar = '#f9c61a';
 const endColorProgressbar = '#d75401'
 
@@ -42,7 +43,7 @@ async function handleButtonClick(event) {
   // Check if the player has completed the quiz
   if (progressPercentage === 100) {
     await sleep(10);
-    alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " Punkte erreicht. \n Nochmal spielen?");
+    alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " von 10 Punkten erreicht.");
     // You may choose to reset the game or perform other actions here
     resetQuiz();
   } else {
@@ -142,6 +143,8 @@ function resetQuiz() {
   correctAnswersCount = 0;
   progressElement.style.width = '0%';
   progressWrapperElement.style.borderColor = startColorProgressbar;
+  
+  freeQuestionIds = questions.map((q,i)=>i);
   loadNewQuestion();
 }
 
@@ -350,6 +353,5 @@ const questions = [
     }
   ];
 
-  let freeQuestionIds = questions.map((q,i)=>i);
 
 resetQuiz();

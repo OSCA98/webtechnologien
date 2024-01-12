@@ -12,6 +12,12 @@ answer1Element.addEventListener('click',handleButtonClick)
 answer2Element.addEventListener('click',handleButtonClick)
 answer3Element.addEventListener('click',handleButtonClick)
 
+//Enum answertypes
+const ANSWER = {
+  CORRECT: 'correct',
+  WRONG: 'wrong'
+}
+
 //Variables to store current informations
 let progressPercentage = 0;
 let currentQuestion = null;
@@ -33,10 +39,10 @@ async function handleButtonClick(event) {
   // Check if the selected answer is correct
   const isCorrectAnswer = selectedAnswerId === currentQuestion.TrueAnswer
   if (isCorrectAnswer) {
-    colorBtn(selectedAnswerId,'green')
+    colorBtn(selectedAnswerId, ANSWER.CORRECT)
     increaseScore();
   } else {
-    colorBtn(selectedAnswerId,'red');
+    colorBtn(selectedAnswerId,ANSWER.WRONG);
   }
   await sleep(isCorrectAnswer ? 200 : 600);
   increaseProgressbar();
@@ -154,16 +160,16 @@ function resetBtnColor() {
   answer3Element.classList.remove('wrongAnswer','rightAnswer');
 }
 
-function colorBtn(answer,color) {
-  switch (answer) {
+function colorBtn(answerId,answerType) {
+  switch (answerId) {
     case 'answer1':
-      answer1Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
+      answer1Element.classList.add(answerType==ANSWER.WRONG? 'wrongAnswer' : 'rightAnswer')
       break;
     case 'answer2':
-      answer2Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
+      answer2Element.classList.add(answerType==ANSWER.WRONG? 'wrongAnswer' : 'rightAnswer')
       break;
     case 'answer3':
-      answer3Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
+      answer3Element.classList.add(answerType==ANSWER.WRONG? 'wrongAnswer' : 'rightAnswer')
       break;
   }
 }

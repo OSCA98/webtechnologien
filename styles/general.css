@@ -9,7 +9,7 @@ body {
   width: 100%;
   height: 4rem;
   box-sizing: border-box;
-  border: 0.5rem solid transparent;
+  border: 0.35rem solid transparent;
   border-image: linear-gradient(to right, #f9c61a, #d75401);
   border-image-slice: 1;
   display: flex;

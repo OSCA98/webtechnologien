@@ -17,6 +17,11 @@ const ANSWER = {
   CORRECT: 'correct',
   WRONG: 'wrong'
 }
+//audio Funktion
+function play() {
+  var audio = new Audio('../images/fx.mp3');
+  audio.play();
+}
 
 //Variables to store current informations
 let progressPercentage = 0;
@@ -49,6 +54,7 @@ async function handleButtonClick(event) {
   // Check if the player has completed the quiz
   if (progressPercentage === 100) {
     await sleep(10);
+    play();
     alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " von 10 Punkten erreicht.");
     // You may choose to reset the game or perform other actions here
     resetQuiz();

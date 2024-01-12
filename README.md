@@ -25,3 +25,4 @@ Barrierefreiheit:
  - Alle <a> mit title
  - Alle <img> mit title und alt
  - Quiz ohne Rot-Grün
+ - Nur <div>, wo nichts anderes Sinn macht (<p>,<h2>,<section> etc..)

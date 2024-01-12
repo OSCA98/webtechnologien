@@ -12,13 +12,29 @@ answer1Element.addEventListener('click',handleButtonClick)
 answer2Element.addEventListener('click',handleButtonClick)
 answer3Element.addEventListener('click',handleButtonClick)
 
-//Variables to store current informations
+//Enum answertypes
+const ANSWER = {
+  CORRECT: 'correct',
+  WRONG: 'wrong'
+}
+
+//---------------------------------------------
+//---Variables to store current informations---
+//---------------------------------------------
+//Current progress in steps of 10(0-100)
 let progressPercentage = 0;
+//Currently loaded question
 let currentQuestion = null;
-const correctAnswersNeeded = 10;
+//Current count of correct answers
 let correctAnswersCount = 0;
+//Time in ms where quiz is blocked after giving answer
+const correctAnswerSleepTimer = 200;
+const wrongAnswerSleepTimer = 200;
+//To block btn after click for certain time
 let deactivateBtns = false;
+//Array of all questionindices, which wasnt already used in quiz
 let freeQuestionIds;
+//Colors of progressbar
 const startColorProgressbar = '#f9c61a';
 const endColorProgressbar = '#d75401'
 
@@ -33,12 +49,12 @@ async function handleButtonClick(event) {
   // Check if the selected answer is correct
   const isCorrectAnswer = selectedAnswerId === currentQuestion.TrueAnswer
   if (isCorrectAnswer) {
-    colorBtn(selectedAnswerId,'green')
+    colorBtn(selectedAnswerId, ANSWER.CORRECT)
     increaseScore();
   } else {
-    colorBtn(selectedAnswerId,'red');
+    colorBtn(selectedAnswerId,ANSWER.WRONG);
   }
-  await sleep(isCorrectAnswer ? 200 : 600);
+  await sleep(isCorrectAnswer ? correctAnswerSleepTimer : wrongAnswerSleepTimer);
   increaseProgressbar();
   // Check if the player has completed the quiz
   if (progressPercentage === 100) {
@@ -119,51 +135,59 @@ function interpolateRGB(rgbString1, rgbString2, percentage) {
   return '#'+ rHex + gHex + bHex;
 }
 
-//Manages getting new random question and updating HTML
+//Manages getting new random question and updating 'HTML'
 function loadNewQuestion () {
   resetBtnColor();
 
   //Count how many questions are still free
   const freeQuestionCount = freeQuestionIds.length;
-  //Get random value
+  //Get random value between 0 and 'freeQuestionCount'
   const arrayIndex = Math.floor(Math.random() * freeQuestionCount)
-  //Slice specific index out of the array
+  //Slice specific index out of the array, to pick this questionindex/remove it from array
   const newQuestionIndex = freeQuestionIds.splice(arrayIndex,1)[0];
   //Set current question
   currentQuestion = questions[newQuestionIndex];
-
+  //Reset all fields in 'HTML' with the questions texts
   questionElement.innerHTML = currentQuestion.question;
   answer1Element.innerHTML = currentQuestion.answer1;
   answer2Element.innerHTML = currentQuestion.answer2;
   answer3Element.innerHTML = currentQuestion.answer3;
 }
 
+/**
+ * Resets all properties in JS and 'HTML' to like the side is freshly loaded
+ */
 function resetQuiz() {
   progressPercentage = 0;
   correctAnswersCount = 0;
-  progressElement.style.width = '0%';
-  progressWrapperElement.style.borderColor = startColorProgressbar;
-  
   freeQuestionIds = questions.map((q,i)=>i);
+  progressElement.style.width = '0%';
+  progressWrapperElement.style.borderColor = startColorProgressbar;  
   loadNewQuestion();
 }
 
+//Remove all clickrelated CSS-properties from buttons
 function resetBtnColor() {
   answer1Element.classList.remove('wrongAnswer','rightAnswer');
   answer2Element.classList.remove('wrongAnswer','rightAnswer');
   answer3Element.classList.remove('wrongAnswer','rightAnswer');
 }
 
-function colorBtn(answer,color) {
-  switch (answer) {
+/**
+ * Color given btn by attaching CSS-class
+ * @param {String} answerId HTML-ID of the button ('answer1','answer2' or 'answer3') 
+ * @param {String} answerType CORRECT or WRONG
+ */
+function colorBtn(answerId,answerType) {
+  switch (answerId) {
     case 'answer1':
-      answer1Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
+      answer1Element.classList.add(answerType==ANSWER.WRONG ? 'wrongAnswer' : 'rightAnswer')
       break;
     case 'answer2':
-      answer2Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
+      answer2Element.classList.add(answerType==ANSWER.WRONG ? 'wrongAnswer' : 'rightAnswer')
       break;
     case 'answer3':
-      answer3Element.classList.add(color=='red'? 'wrongAnswer' : 'rightAnswer')
+      answer3Element.classList.add(answerType==ANSWER.WRONG ? 'wrongAnswer' : 'rightAnswer')
       break;
   }
 }

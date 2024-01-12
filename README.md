@@ -19,3 +19,10 @@ Barrierefreiheit:
  - Kontrast
  - Semastische Tags
  - Was heißt Barrierefrei (Quiz, Hovertexte)
+
+ # Punkte zum kontrollieren
+ - Tabreihenfolge auf allen Seiten sinnvoll
+ - Alle <a> und <button> mit title
+ - Alle <img> mit title und alt
+ - Quiz ohne Rot-Grün
+ - Nur <div>, wo nichts anderes Sinn macht (<p>,<h2>,<section> etc..)

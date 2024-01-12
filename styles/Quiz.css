@@ -63,12 +63,12 @@ font-size: 110%;
 }
 
 .wrongAnswer {
-  background-color: red;
+  background-color: gray;
   border-color: transparent;
   border-radius: 0.25rem;
 }
 .rightAnswer {
-  background-color: green;
+  background-color: gray;
   border-color: transparent;
   border-radius: 0.25rem;
 }

@@ -22,7 +22,7 @@ Barrierefreiheit:
 
  # Punkte zum kontrollieren
  - Tabreihenfolge auf allen Seiten sinnvoll
- - Alle <a> mit title
+ - Alle <a> und <button> mit title
  - Alle <img> mit title und alt
  - Quiz ohne Rot-Grün
  - Nur <div>, wo nichts anderes Sinn macht (<p>,<h2>,<section> etc..)

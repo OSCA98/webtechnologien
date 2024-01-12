@@ -18,6 +18,7 @@ let currentQuestion = null;
 const correctAnswersNeeded = 10;
 let correctAnswersCount = 0;
 let deactivateBtns = false;
+let freeQuestionIds;
 const startColorProgressbar = '#f9c61a';
 const endColorProgressbar = '#d75401'
 
@@ -142,6 +143,8 @@ function resetQuiz() {
   correctAnswersCount = 0;
   progressElement.style.width = '0%';
   progressWrapperElement.style.borderColor = startColorProgressbar;
+  
+  freeQuestionIds = questions.map((q,i)=>i);
   loadNewQuestion();
 }
 
@@ -350,6 +353,5 @@ const questions = [
     }
   ];
 
-  let freeQuestionIds = questions.map((q,i)=>i);
 
 resetQuiz();

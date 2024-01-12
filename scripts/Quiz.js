@@ -42,7 +42,7 @@ async function handleButtonClick(event) {
   // Check if the player has completed the quiz
   if (progressPercentage === 100) {
     await sleep(10);
-    alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " Punkte erreicht. \n Nochmal spielen?");
+    alert("Herzlichen Glückwunsch! Sie haben " + correctAnswersCount + " von 10 Punkten erreicht.");
     // You may choose to reset the game or perform other actions here
     resetQuiz();
   } else {

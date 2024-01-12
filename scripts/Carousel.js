@@ -223,4 +223,5 @@ function moveAllSlides(movePercentage) {
 //Init first 3 Banners
 initSlideShow();
 
+//Start autoslide clock
 autoSlideClock();

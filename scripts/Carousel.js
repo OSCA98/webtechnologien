@@ -13,17 +13,17 @@ const slideData = [
   {
     header: 'Wissenschaftlicher Mehrwert',
     imgPath: '../images/Karusselbilder/p1.jpg',
-    text: 'Moderne Telekomunikation wäre ohne Raumfahrt unmöglich'
+    text: 'Moderne Raumfahrt ohne Innovation ist unmöglich.'
   },
   {
     header: 'Technische Umsetzung',
     imgPath: '../images/Karusselbilder/p2.jpg',
-    text: 'Durch KI-gestütze Entwicklung konnten weitere Verbesserungen in Aerodynamik, Treibstoffverbrauch und Baukosten erzielt werden'
+    text: 'Unsere neusten technischen Entwicklungen machen es möglich: Das nächstes Ziel ist die Venus!'
   },
   {
     header: 'Ausblick',
     imgPath: '../images/Karusselbilder/p3.jpg',
-    text: 'Dem Kolonisieren fremder Welten stehen nur noch wenige technische Hürden im Weg'
+    text: 'Sehen Sie sich unsere aktuell laufenden Operationen auf dem Mars an.'
   }
 ]
 

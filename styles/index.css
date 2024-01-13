@@ -90,4 +90,13 @@ h2,h3{
   justify-content: space-between;
 }
 
+.bottom-line {
+  margin-top: auto;
+  background-color: transparent;
+  color: white;
+}
 
+.icon {
+width: 20px;
+height: 20px;
+}

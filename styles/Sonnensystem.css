@@ -81,3 +81,14 @@ a {
   width: 85px;
   height: 85px;
 }
+
+.bottom-line {
+  margin-top: auto;
+  background-color: transparent;
+  color: white;
+}
+
+.icon {
+width: 20px;
+height: 20px;
+}

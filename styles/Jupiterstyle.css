@@ -7,3 +7,14 @@ h1,h2,p{
     font-size: 200%;
     color:white;
     }  
+
+    .bottom-line {
+        margin-top: auto;
+        background-color: transparent;
+        color: white;
+    }
+    
+    .icon {
+      width: 20px;
+      height: 20px;
+    }

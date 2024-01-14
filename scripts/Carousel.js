@@ -32,7 +32,8 @@ let currentSlideIndex = 0;
 //Keeps track if banner is currently moving to prevent multiple btn-clicks
 let isProcessing = false;
 //Timer to automaticly slide banner in ms
-let autoSlideTimer = 8000;
+const autoSlideTime = 4000;
+let remainingAutoSlideTime = autoSlideTime;
 
 /**
  * Loads initial 3 slides:
@@ -51,12 +52,12 @@ function initSlideShow() {
  */
 function autoSlideClock() {
   //If remaining time is 0 --> slide right and reset timer
-  if (autoSlideTimer <= 0) {
+  if (remainingAutoSlideTime <= 0) {
     handleRightBtnClick()
-    autoSlideTimer = 8000;
+    remainingAutoSlideTime = autoSlideTime;
   } else {
     //Else, just reduce timer by 1second
-    autoSlideTimer -= 1000;
+    remainingAutoSlideTime -= 1000;
   }
   //Reinvoce timerfunction after 1 second
   setTimeout(autoSlideClock,1000);
@@ -71,7 +72,7 @@ async function handleLeftBtnClick() {
     return;
   }
   isProcessing = true;
-  autoSlideTimer = 5000;
+  remainingAutoSlideTime = autoSlideTime;
   //Add slide on the outer left position (2 lengths left of current slide)
   addSlide(getSlideIndex(2),-2,'first')
   //Move whole banner to the right --> new current slide
@@ -90,7 +91,7 @@ async function handleRightBtnClick() {
     return;
   }
   isProcessing = true;
-  autoSlideTimer = 5000;
+  remainingAutoSlideTime = 5000;
   //Add slide on the outer right position (2 lengths right of current slide)
   addSlide(getSlideIndex(-2),2,'last')
   //Move whole banner to the left --> new current slide

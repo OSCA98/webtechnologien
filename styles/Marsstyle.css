@@ -3,18 +3,20 @@
 body{
   background-color: #000000;
   color: #ffffff;
-  font-family:Calibri, Arial
+  font-family: Calibri, Arial
 }
+
 h1,h2{
   text-align:center;
   font-family:Arial;
   font-size: 200%;
   color:whitesmoke
-  }
-  p{
-    text-align:center;
-    font-family:Arial;
-    font-size:120%;
-    color:white;
+}
+
+p{
+  text-align:center;
+  font-family:Arial;
+  font-size:120%;
+  color:white;
 }
 

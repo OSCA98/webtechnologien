@@ -75,3 +75,8 @@ transform: scale(1.1);
   color: white;
   text-align:center;
 }
+
+.footer > img {
+  width: 20px;
+  height: 20px;
+}

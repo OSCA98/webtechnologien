@@ -57,7 +57,10 @@ height:100%;
 font-size: 110%;
 }
 
-.answer:not(.wrongAnswer):hover .answer:not(.rightAnswer):hover {
+.answer:not(.wrongAnswer):hover,
+.answer:not(.rightAnswer):hover,
+.answer:not(.wrongAnswer):focus,
+.answer:not(.rightAnswer):focus {
   background-color: lightgray;
   border-color: lightgray;
 }

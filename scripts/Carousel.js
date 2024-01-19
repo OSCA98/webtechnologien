@@ -4,8 +4,8 @@ const backBtn = document.getElementById("carouselBackBtn")
 const forwardBtn = document.getElementById("carouselForwardBtn")
 
 //Add clickevents to btns
-backBtn.addEventListener('click',handleLeftBtnClick);
-forwardBtn.addEventListener('click',handleRightBtnClick);
+backBtn.addEventListener('click',()=>{handleLeftBtnClick();stopAutoScroll()});
+forwardBtn.addEventListener('click',()=>{handleRightBtnClick();stopAutoScroll()});
 
 
 //Array of pictures
@@ -34,6 +34,7 @@ let isProcessing = false;
 //Timer to automaticly slide banner in ms
 const autoSlideTime = 4000;
 let remainingAutoSlideTime = autoSlideTime;
+let autoSlideTimerFn;
 
 /**
  * Loads initial 3 slides:
@@ -60,9 +61,12 @@ function autoSlideClock() {
     remainingAutoSlideTime -= 1000;
   }
   //Reinvoce timerfunction after 1 second
-  setTimeout(autoSlideClock,1000);
+  autoSlideTimerFn = setTimeout(autoSlideClock,1000);
 }
 
+function stopAutoScroll() {
+  clearTimeout(autoSlideTimerFn);
+}
 /**
  * Gets called when left button is clicked
  */

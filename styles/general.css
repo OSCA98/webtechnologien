@@ -67,3 +67,11 @@ transform: scale(1.1);
 .w-100 {
   width: 100%;
 }
+
+
+.footer {
+  margin-top: auto;
+  background-color: transparent;
+  color: white;
+  text-align:center;
+}
